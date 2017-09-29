@@ -13,6 +13,16 @@ export class SimpleForm extends Component {
     handleSubmitWithRedirect = (redirect = this.props.redirect) =>
         this.props.handleSubmit(values => this.props.save(values, redirect));
 
+    changeField(fieldName, value) {
+        this.props.change(fieldName, value);
+    }   
+
+    componentDidMount () {
+        if (this.props.changeFormField) {
+            this.props.changeFormField(this.changeField.bind(this)); 
+        }
+    }
+
     render() {
         const {
             basePath,
