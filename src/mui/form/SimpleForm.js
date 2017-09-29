@@ -18,7 +18,9 @@ export class SimpleForm extends Component {
     }   
 
     componentDidMount () {
-        this.props.changeFormField(this.changeField.bind(this)); 
+        if (this.props.changeFormField) {
+            this.props.changeFormField(this.changeField.bind(this)); 
+        }
     }
 
     render() {
